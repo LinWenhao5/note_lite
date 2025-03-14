@@ -5,10 +5,28 @@ import '../../models/note.dart';
 import '../../services/note_service.dart';
 
 
-class NoteListScreen extends StatelessWidget {
-  final NoteService _noteService = NoteService();
+class NoteListScreen extends StatefulWidget {
+  const NoteListScreen({super.key});
 
-  NoteListScreen({super.key});
+  @override
+  _NoteListScreenState createState() => _NoteListScreenState();
+}
+
+class _NoteListScreenState extends State<NoteListScreen> {
+  final NoteService _noteService = NoteService();
+  late Future<List<Note>> _notesFuture;
+
+  @override
+  void initState() {
+    super.initState();
+    _notesFuture = _noteService.getNotes();
+  }
+
+  void _reloadNotes() {
+    setState(() {
+      _notesFuture = _noteService.getNotes();
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -18,8 +36,12 @@ class NoteListScreen extends StatelessWidget {
         actions: [
           IconButton(
             icon: Icon(Icons.add),
-            onPressed: () {
-              Navigator.push(context, MaterialPageRoute(builder: (context) => AddNoteScreen()));
+            onPressed: () async {
+              await Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => AddNoteScreen())
+              );
+              _reloadNotes();
             },
           ),
         ],
