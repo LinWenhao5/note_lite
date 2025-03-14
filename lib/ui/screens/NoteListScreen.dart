@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:note_lite/ui/screens/AddNoteScreen.dart';
 
 import '../../models/note.dart';
 import '../../services/note_service.dart';
@@ -18,6 +19,7 @@ class NoteListScreen extends StatelessWidget {
           IconButton(
             icon: Icon(Icons.add),
             onPressed: () {
+              Navigator.push(context, MaterialPageRoute(builder: (context) => AddNoteScreen()));
             },
           ),
         ],
