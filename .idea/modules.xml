@@ -3,7 +3,6 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/note_lite.iml" filepath="$PROJECT_DIR$/note_lite.iml" />
-      <module fileurl="file://$PROJECT_DIR$/android/note_lite_android.iml" filepath="$PROJECT_DIR$/android/note_lite_android.iml" />
     </modules>
   </component>
 </project>
