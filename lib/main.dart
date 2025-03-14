@@ -1,6 +1,6 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:note_lite/screens/NoteListScreen.dart';
+import 'package:note_lite/ui/screens/NoteListScreen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
